@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\CadastroCashback",
+    "\\CadastroCashback\\Controllers",
+    "\\CadastroCashback\\Views",
+    "\\CadastroCashback\\Views\\Cadastrados",
+    "\\CadastroCashback\\Views\\Home",
+    "\\CadastroCashback\\wwwroot"
   ],
-  "SelectedNode": "\\CadastroCashback.sln",
+  "SelectedNode": "\\CadastroCashback\\Views\\Home\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CadastroCashback.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CadastroCashback.Controllers
 {
@@ -23,5 +24,10 @@ namespace CadastroCashback.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Criar(ContatoModel contato) { 
+            
+        }
+        
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CadastroCashback")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ba6b613a40ec7e2455977fcb14d952e766a610b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbef1f04d7f4b8ed01629bae8246707e287d0a11")]
 [assembly: System.Reflection.AssemblyProductAttribute("CadastroCashback")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CadastroCashback")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

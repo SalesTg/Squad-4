@@ -1,12 +1,136 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Tiago\\source\\repos\\Squad-4\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Tiago\\source\\Squad-4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\models\\contatomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\models\\contatomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\controllers\\cadastradoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\controllers\\cadastradoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\views\\cadastrados\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\views\\cadastrados\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\views\\cadastrados\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\views\\cadastrados\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\views\\cadastrados\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\views\\cadastrados\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|c:\\users\\tiago\\source\\squad-4\\cadastrocashback\\views\\cadastrados\\deletar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A5C6497-ADAB-4006-8F42-164A3970338B}|CadastroCashback\\CadastroCashback.csproj|solutionrelative:cadastrocashback\\views\\cadastrados\\deletar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ContatoModel.cs",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Models\\ContatoModel.cs",
+              "RelativeDocumentMoniker": "CadastroCashback\\Models\\ContatoModel.cs",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Models\\ContatoModel.cs",
+              "RelativeToolTip": "CadastroCashback\\Models\\ContatoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T18:44:09.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "CadastroCashback\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "CadastroCashback\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T18:39:22.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CadastradosController.cs",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Controllers\\CadastradosController.cs",
+              "RelativeDocumentMoniker": "CadastroCashback\\Controllers\\CadastradosController.cs",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Controllers\\CadastradosController.cs*",
+              "RelativeToolTip": "CadastroCashback\\Controllers\\CadastradosController.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T18:39:19.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Index.cshtml",
+              "RelativeDocumentMoniker": "CadastroCashback\\Views\\Cadastrados\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Index.cshtml",
+              "RelativeToolTip": "CadastroCashback\\Views\\Cadastrados\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T00:50:31.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Editar.cshtml",
+              "RelativeDocumentMoniker": "CadastroCashback\\Views\\Cadastrados\\Editar.cshtml",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Editar.cshtml",
+              "RelativeToolTip": "CadastroCashback\\Views\\Cadastrados\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T00:50:30.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Deletar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Deletar.cshtml",
+              "RelativeDocumentMoniker": "CadastroCashback\\Views\\Cadastrados\\Deletar.cshtml",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Deletar.cshtml",
+              "RelativeToolTip": "CadastroCashback\\Views\\Cadastrados\\Deletar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T00:50:28.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Criar.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Criar.cshtml",
+              "RelativeDocumentMoniker": "CadastroCashback\\Views\\Cadastrados\\Criar.cshtml",
+              "ToolTip": "C:\\Users\\Tiago\\source\\Squad-4\\CadastroCashback\\Views\\Cadastrados\\Criar.cshtml",
+              "RelativeToolTip": "CadastroCashback\\Views\\Cadastrados\\Criar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-09T19:46:13.239Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
