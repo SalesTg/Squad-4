@@ -9,5 +9,12 @@ public class BancoContext : DbContext
     {
     }
     
-    public DbSet<ContatoModel> Contatos { get; set; }
+
+    public DbSet<Campanha> Campanhas { get; set; }
+    public DbSet<ModoEntrada> ModoEntrada { get; set; }
+    public DbSet<ModeloCartao> ModeloCartao { get; set; }
+    public DbSet<EstabelecimentoComercial> EstabelecimentoComercial { get; set; }
+    public DbSet<Mcc> Mcc { get; set; }
+    public DbSet<Elegibilidade> Elegibilidade { get; set; }
+
 }
