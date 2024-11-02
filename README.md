@@ -1,6 +1,6 @@
 # Como Rodar o Projeto
 
-Estamos utilizando **SQL Server** como banco de dados da aplicação. Você pode instalar o **SQL Server 2022** diretamente ou usar o **Docker** (mais fácil e foi o método que utilizei).
+Estamos utilizando **SQL Server** como banco de dados da aplicação. Você pode instalar o [**SQL Server 2022**](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) diretamente ou usar o [**Docker**](https://docs.docker.com/desktop/install/windows-install/). (mais fácil e foi o método que utilizei).
 
 ## Instalando o SQL Server com Docker
 
