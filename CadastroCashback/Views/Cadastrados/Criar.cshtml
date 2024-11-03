@@ -1,69 +1,147 @@
-﻿<div class="text-center">
-    <h1>Criar Campanha</h1>
+﻿@model CadastroCashback.Models.Campanha
+
+<div class="container">
+    <main>
+        <div class="col-md-7 col-lg-8">
+            <h1 class="mb-3">Criar Campanha</h1>
+            <form class="needs-validation" novalidate asp-action="CriarPost">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Nome da Campanha</label>
+                        <input class="form-control" asp-for="@Model.Nome" required>
+                        <div class="invalid-feedback">O nome da campanha é obrigatório.</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="premiacaoSelect" class="form-label">Tipo de Premiação</label>
+                        <select class="form-select" id="premiacaoSelect" required asp-for="@Model.TipoPremiacao"
+                                onchange="toggleFieldVisibility('premiacaoSelect', 'CreditoFatura', 'PontosLivelo', 'tipoCreditoDiv', 'pontosPorRealDiv')">
+                            <option value="">Selecione uma opção</option>
+                            <option value="@ETipoPremiacao.CreditoFatura">Crédito em fatura</option>
+                            <option value="@ETipoPremiacao.PontosLivelo">Pontos Livelo</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione um tipo de premiação.</div>
+                    </div>
+
+                    <div class="col-6" id="tipoCreditoDiv" style="display: none;">
+                        <label for="tipoCreditoSelect" class="form-label">Tipo de crédito em fatura</label>
+                        <select class="form-select" id="tipoCreditoSelect" asp-for="@Model.TipoCredito"
+                                onchange="toggleFieldVisibility('tipoCreditoSelect', 'ValorFixo', 'PercentualCompra', 'valorCashbackDiv', 'percentualCampanhaDiv')">
+                            <option value="">Selecione uma opção</option>
+                            <option value="@ETipoCredito.ValorFixo">Valor Fixo</option>
+                            <option value="@ETipoCredito.PercentualCompra">Percentual da compra</option>
+                        </select>
+                    </div>
+
+                    <div class="col-6" id="valorCashbackDiv" style="display: none;">
+                        <label for="valorCashback" class="form-label">Valor do Cashback</label>
+                        <input type="number" class="form-control" id="valorCashback" placeholder="Digite o valor do cashback" asp-for="@Model.ValorCashback" required>
+                    </div>
+
+                    <div class="col-6" id="percentualCampanhaDiv" style="display: none;">
+                        <label for="percentualCampanha" class="form-label">Percentual da Campanha</label>
+                        <input type="number" class="form-control" id="percentualCampanha" placeholder="Digite o percentual da campanha" asp-for="@Model.PercentualCashback" required>
+                    </div>
+
+                    <div class="col-6" id="pontosPorRealDiv" style="display: none;">
+                        <label for="pontosPorReal" class="form-label">Pontos por Real</label>
+                        <input type="number" class="form-control" id="pontosPorReal" placeholder="Digite os pontos por real" asp-for="@Model.PontosPorReal" required>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="fatoresCategorizacao" class="form-label">Fatores de Categorização</label>
+                        <select class="form-select" id="fatoresCategorizacao" required asp-for="@Model.FatorCategorizacao">
+                            <option value="">Selecione uma opção</option>
+                            <option value="@EFatorCategorizacao.TransaçõesCategorizadas">Transações categorizadas </option>
+                            <option value="@EFatorCategorizacao.PortadoresCadastrados">Portadores cadastrados + Transações categorizadas</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione um fator de categorização.</div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="dataInicial" class="form-label">Data início de Campanha</label>
+                        <input type="date" class="form-control" id="dataInicial" asp-for="@Model.DataInicio" required>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="dataFinal" class="form-label">Data Final de Campanha</label>
+                        <input type="date" class="form-control" id="dataFinal" asp-for="@Model.DataFim" required>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="limiteQuantitativo" class="form-label">Limite Quantitativo</label>
+                        <input type="text" class="form-control" id="limiteQuantitativo" asp-for="@Model.LimiteQuantitativo" required>
+                        <div class="invalid-feedback">O limite quantitativo é obrigatório.</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="mecanicaCampanha" class="form-label">Mecânica da Campanha</label>
+                        <select class="form-select" id="mecanicaCampanha" required asp-for="@Model.Mecanica">
+                            <option value="">Selecione uma opção</option>
+                            <option value="@EMecanica.Transacional">Transacional</option>
+                            <option value="@EMecanica.Acúmulo">Acúmulo</option>
+                            <option value="@EMecanica.Frequência">Frequência</option>
+                        </select>
+                        <div class="invalid-feedback">Por favor, selecione uma mecânica da campanha.</div>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="same-address" onclick="togglePaymentMethods()">
+                        <label class="form-check-label" for="same-address">Informe de exceção</label>
+                    </div>
+
+                    <div class="my-3" id="paymentMethods" style="display: none;">
+                        <div class="form-check">
+                            <input id="credit" name="TipoExecucao" value="@ETipoExecacao.Whiteliste" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="credit">Whitelist</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" name="TipoExecucao" value="@ETipoExecacao.Blacklist" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="debit">Blacklist</label>
+                        </div>
+                        <div class="invalid-feedback">Selecione um método de pagamento.</div>
+                    </div>
+
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-primary me-2 col-4">Cadastrar</button>
+                        <a class="btn btn-danger" asp-controller="Cadastrados" asp-action="Index">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
 </div>
-<form>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="CampanhaLabel">Nome da Campanha</label>
-            <input type="text" class="form-control" id="campanhaId" placeholder="Nome da campanha">
-        </div>
-        </br>
-        <select class="form-control">
-            <option>Tipo de Premiação</option>
-            <option>Acumulo de pontos</option>
-            <option>Cashback</option>
-        </select>
-    </div>
-    </br>
 
-    <select class="form-control">
-        <option>Fatores de Categorização</option>
-        <option>Fator1</option>
-        <option>Fator2</option>
-    </select>
-    </br>
-    <div class="form-group">
-        <label for="dataInicial">Data inicio de Campanha</label>
-        <input type="date" class="form-control" id="dataInicial" placeholder="Data inicio de Campanha">
-    </div>
-    </br>
-    <div class="form-group">
-        <label for="dataFinal">Data Final de Campanha</label>
-        <input type="date" class="form-control" id="dataFinal" placeholder="Data Final de Campanha">
-    </div>
-    </br>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="limiteQuant">Limite Quantitativo</label>
-            <input type="text" class="form-control" id="limiteQuant">
-        </div>
-        </br>
-        <div class="form-group col-md-2">
-            <label for="inputMecanica">Mecânica da Campanha</label>
-            <input type="text" class="form-control" id="inputMecanica">
-        </div>
-    </div>
-    </br>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        <label class="form-check-label" for="defaultCheck1">
-            Whitelist
-        </label>
-    </div>
-    </br>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-        <label class="form-check-label" for="defaultCheck2">
-            Blacklist
-        </label>
-    </div>
-    </br>
-    <div class="form-check" >
-        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label
-        <label class="form-check-label" for="defaultCheck3">Termos de Aceitação<label/>
-    </div>
+<script src="~/js/site.js" asp-append-version="true"></script>
 
-    </br>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-    <a type="button" class="btn btn-primary" asp-controller="Cadastrados" asp-action="Index">Voltar</a>
-</form>
+@section Scripts {
+    <script>
+        function toggleFieldVisibility(selectId, value1, value2, div1Id, div2Id) {
+            const selectElement = document.getElementById(selectId);
+            const div1 = document.getElementById(div1Id);
+            const div2 = document.getElementById(div2Id);
+
+            if (selectElement.value === value1) {
+                div1.style.display = "block";
+                div2.style.display = "none";
+            } else if (selectElement.value === value2) {
+                div1.style.display = "none";
+                div2.style.display = "block";
+            } else {
+                div1.style.display = "none";
+                div2.style.display = "none";
+            }
+        }
+
+        function togglePaymentMethods() {
+            const checkbox = document.getElementById('same-address');
+            const paymentMethodsDiv = document.getElementById('paymentMethods');
+            paymentMethodsDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            toggleFieldVisibility("premiacaoSelect", "@ETipoPremiacao.CreditoFatura", "@ETipoPremiacao.PontosLivelo", "tipoCreditoDiv", "pontosPorRealDiv");
+            toggleFieldVisibility("tipoCreditoSelect", "ValorFixo", "PercentualCompra", "valorCashbackDiv", "percentualCampanhaDiv");
+        });
+    </script>
+}

@@ -48,11 +48,6 @@ namespace CadastroCashback.Models
         [Column("valor_minimo_transacao")]
         public decimal ValorMinimoTransacao { get; set; }
 
-        public ModoEntrada ModoEntrada { get; set; }
-
-        [Column("modo_entrada_id")]
-        public int ModoEntradaId { get; set;}
-
         public ICollection<Elegibilidade> Elegibilidade { get; set; } = [];
 
     }
