@@ -92,11 +92,11 @@
 
                     <div class="my-3" id="paymentMethods" style="display: none;">
                         <div class="form-check">
-                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input" required>
+                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input" >
                             <label class="form-check-label" for="credit">Whitelist</label>
                         </div>
                         <div class="form-check">
-                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input" required>
+                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input">
                             <label class="form-check-label" for="debit">Blacklist</label>
                         </div>
                     </div>

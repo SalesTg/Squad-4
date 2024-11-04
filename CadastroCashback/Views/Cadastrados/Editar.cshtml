@@ -3,7 +3,7 @@
 <div class="container">
     <main>
         <div class="col-md-7 col-lg-8">
-            <h1 class="mb-3">Criar Campanha</h1>
+            <h1 class="mb-3">Editar Campanha</h1>
             <form class="needs-validation" novalidate asp-action="EditarCampanha">
                 <input asp-for="@Model.Id" hidden>
                 <div class="row g-3">
@@ -93,11 +93,11 @@
 
                     <div class="my-3" id="paymentMethods" style="display: none;">
                         <div class="form-check">
-                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input" required>
+                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input">
                             <label class="form-check-label" for="credit">Whitelist</label>
                         </div>
                         <div class="form-check">
-                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input" required>
+                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input" >
                             <label class="form-check-label" for="debit">Blacklist</label>
                         </div>
                     </div>
