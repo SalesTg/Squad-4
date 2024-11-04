@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<CadastroCashback.Models.Campanha>
+
+@{
     ViewData["Title"] = "Campanhas cadastradas";
 }
 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
@@ -6,8 +8,7 @@
 </div>
 </br>
 
-<div class= text-center >
-
+<div class="text-center">
     <h1>Campanhas Cadastradas</h1>
     <table class="table">
         <thead>
@@ -15,47 +16,23 @@
                 <th scope="col">#</th>
                 <th scope="col">Nome da Campanha</th>
                 <th scope="col">Data Inicial</th>
-                <th scope="col">Data final</th>
-                <th scope="col">Status da Campanha</th>
+                <th scope="col">Data Final</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-                <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar">Deletar Campanha</a></div></td>
-                <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar">Editar</a></div></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar">Deletar Campanha</a></div></td>
-                <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar">Editar</a></div></td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar">Deletar Campanha</a></div></td>
-                <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar">Editar</a></div></td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-                <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar">Deletar Campanha</a></div></td>
-                <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar">Editar</a></div></td>
-            </tr>
-
-
+            @foreach (var campanha in Model.OrderByDescending(c => c.Id))
+            {
+                <tr>
+                    <th scope="row">@campanha.Id</th>
+                    <td>@campanha.Nome</td>
+                    <td>@campanha.DataInicio.ToShortDateString()</td>
+                    <td>@campanha.DataFim.ToShortDateString()</td>
+                    <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar" asp-route-id="@campanha.Id">Deletar Campanha</a></div></td>
+                    <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar" asp-route-id="@campanha.Id">Editar</a></div></td>
+                </tr>
+            }
         </tbody>
     </table>
-</div>    
+</div>

@@ -1,6 +1,6 @@
 ﻿namespace CadastroCashback.Models
 {
-    public enum ETipoExecacao
+    public enum ETipoExcecao
     {
         Blacklist = 'B',
         Whiteliste = 'W'

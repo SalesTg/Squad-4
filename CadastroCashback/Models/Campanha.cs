@@ -12,7 +12,7 @@ namespace CadastroCashback.Models
         [Column("nome")]
         public string Nome { get; set; }
 
-        [Column("tipo_premiacao", TypeName ="char(1)")]
+        [Column("tipo_premiacao", TypeName = "char(1)")]
         public ETipoPremiacao TipoPremiacao { get; set; }
 
         [Column("tipo_credito", TypeName = "char(1)")]
@@ -28,7 +28,7 @@ namespace CadastroCashback.Models
         public decimal PontosPorReal { get; set; }
 
         [Column("fator_categorizacao", TypeName = "char(1)")]
-        public EFatorCategorizacao FatorCategorizacao{ get; set; }
+        public EFatorCategorizacao FatorCategorizacao { get; set; }
 
         [Column("data_inicio")]
         public DateTime DataInicio { get; set; }
@@ -43,7 +43,7 @@ namespace CadastroCashback.Models
         public EMecanica Mecanica { get; set; }
 
         [Column("tipo_excecao", TypeName = "char(1)")]
-        public ETipoExecacao? TipoExecacao { get; set; }
+        public ETipoExcecao? TipoExcecao { get; set; }
 
         [Column("valor_minimo_transacao")]
         public decimal ValorMinimoTransacao { get; set; }

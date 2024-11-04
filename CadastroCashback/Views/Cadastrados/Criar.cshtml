@@ -15,7 +15,7 @@
                     <div class="col-12">
                         <label for="premiacaoSelect" class="form-label">Tipo de Premiação</label>
                         <select class="form-select" id="premiacaoSelect" required asp-for="@Model.TipoPremiacao"
-                                onchange="toggleFieldVisibility('premiacaoSelect', 'CreditoFatura', 'PontosLivelo', 'tipoCreditoDiv', 'pontosPorRealDiv')">
+                                onchange="togglePremiacaoVisibility()">
                             <option value="">Selecione uma opção</option>
                             <option value="@ETipoPremiacao.CreditoFatura">Crédito em fatura</option>
                             <option value="@ETipoPremiacao.PontosLivelo">Pontos Livelo</option>
@@ -26,26 +26,26 @@
                     <div class="col-6" id="tipoCreditoDiv" style="display: none;">
                         <label for="tipoCreditoSelect" class="form-label">Tipo de crédito em fatura</label>
                         <select class="form-select" id="tipoCreditoSelect" asp-for="@Model.TipoCredito"
-                                onchange="toggleFieldVisibility('tipoCreditoSelect', 'ValorFixo', 'PercentualCompra', 'valorCashbackDiv', 'percentualCampanhaDiv')">
+                                onchange="toggleTipoCreditoVisibility()">
                             <option value="">Selecione uma opção</option>
-                            <option value="@ETipoCredito.ValorFixo">Valor Fixo</option>
-                            <option value="@ETipoCredito.PercentualCompra">Percentual da compra</option>
+                            <option value="ValorFixo">Valor Fixo</option>
+                            <option value="PercentualCompra">Percentual da compra</option>
                         </select>
                     </div>
 
                     <div class="col-6" id="valorCashbackDiv" style="display: none;">
                         <label for="valorCashback" class="form-label">Valor do Cashback</label>
-                        <input type="number" class="form-control" id="valorCashback" placeholder="Digite o valor do cashback" asp-for="@Model.ValorCashback" required>
+                        <input type="number" class="form-control" id="valorCashback" placeholder="Digite o valor do cashback" asp-for="@Model.ValorCashback">
                     </div>
 
                     <div class="col-6" id="percentualCampanhaDiv" style="display: none;">
                         <label for="percentualCampanha" class="form-label">Percentual da Campanha</label>
-                        <input type="number" class="form-control" id="percentualCampanha" placeholder="Digite o percentual da campanha" asp-for="@Model.PercentualCashback" required>
+                        <input type="number" class="form-control" id="percentualCampanha" placeholder="Digite o percentual da campanha" asp-for="@Model.PercentualCashback">
                     </div>
 
                     <div class="col-6" id="pontosPorRealDiv" style="display: none;">
                         <label for="pontosPorReal" class="form-label">Pontos por Real</label>
-                        <input type="number" class="form-control" id="pontosPorReal" placeholder="Digite os pontos por real" asp-for="@Model.PontosPorReal" required>
+                        <input type="number" class="form-control" id="pontosPorReal" placeholder="Digite os pontos por real" asp-for="@Model.PontosPorReal">
                     </div>
 
                     <div class="col-12">
@@ -92,14 +92,13 @@
 
                     <div class="my-3" id="paymentMethods" style="display: none;">
                         <div class="form-check">
-                            <input id="credit" name="TipoExecucao" value="@ETipoExecacao.Whiteliste" type="radio" class="form-check-input" required>
+                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input" required>
                             <label class="form-check-label" for="credit">Whitelist</label>
                         </div>
                         <div class="form-check">
-                            <input id="debit" name="TipoExecucao" value="@ETipoExecacao.Blacklist" type="radio" class="form-check-input" required>
+                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input" required>
                             <label class="form-check-label" for="debit">Blacklist</label>
                         </div>
-                        <div class="invalid-feedback">Selecione um método de pagamento.</div>
                     </div>
 
                     <div class="d-flex">
@@ -112,36 +111,71 @@
     </main>
 </div>
 
-<script src="~/js/site.js" asp-append-version="true"></script>
-
 @section Scripts {
     <script>
-        function toggleFieldVisibility(selectId, value1, value2, div1Id, div2Id) {
-            const selectElement = document.getElementById(selectId);
-            const div1 = document.getElementById(div1Id);
-            const div2 = document.getElementById(div2Id);
+        function togglePremiacaoVisibility() {
+            const premiacaoSelect = document.getElementById("premiacaoSelect");
+            const tipoCreditoDiv = document.getElementById("tipoCreditoDiv");
+            const pontosPorRealDiv = document.getElementById("pontosPorRealDiv");
+            const valorCashbackDiv = document.getElementById("valorCashbackDiv");
+            const percentualCampanhaDiv = document.getElementById("percentualCampanhaDiv");
 
-            if (selectElement.value === value1) {
-                div1.style.display = "block";
-                div2.style.display = "none";
-            } else if (selectElement.value === value2) {
-                div1.style.display = "none";
-                div2.style.display = "block";
-            } else {
-                div1.style.display = "none";
-                div2.style.display = "none";
+            tipoCreditoDiv.style.display = "none";
+            pontosPorRealDiv.style.display = "none";
+            valorCashbackDiv.style.display = "none";
+            percentualCampanhaDiv.style.display = "none";
+
+            if (premiacaoSelect.value === "@ETipoPremiacao.CreditoFatura") {
+                tipoCreditoDiv.style.display = "block";
+            } else if (premiacaoSelect.value === "@ETipoPremiacao.PontosLivelo") {
+                pontosPorRealDiv.style.display = "block";
             }
         }
+
+        function toggleTipoCreditoVisibility() {
+            const tipoCreditoSelect = document.getElementById("tipoCreditoSelect");
+            const valorCashbackDiv = document.getElementById("valorCashbackDiv");
+            const percentualCampanhaDiv = document.getElementById("percentualCampanhaDiv");
+
+            valorCashbackDiv.style.display = "none";
+            percentualCampanhaDiv.style.display = "none";
+
+            if (tipoCreditoSelect.value === "ValorFixo") {
+                valorCashbackDiv.style.display = "block";
+            } else if (tipoCreditoSelect.value === "PercentualCompra") {
+                percentualCampanhaDiv.style.display = "block";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            togglePremiacaoVisibility();
+            toggleTipoCreditoVisibility();
+        });
 
         function togglePaymentMethods() {
             const checkbox = document.getElementById('same-address');
             const paymentMethodsDiv = document.getElementById('paymentMethods');
+
             paymentMethodsDiv.style.display = checkbox.checked ? 'block' : 'none';
         }
 
         document.addEventListener("DOMContentLoaded", function () {
-            toggleFieldVisibility("premiacaoSelect", "@ETipoPremiacao.CreditoFatura", "@ETipoPremiacao.PontosLivelo", "tipoCreditoDiv", "pontosPorRealDiv");
-            toggleFieldVisibility("tipoCreditoSelect", "ValorFixo", "PercentualCompra", "valorCashbackDiv", "percentualCampanhaDiv");
+            togglePremiacaoVisibility();
+            toggleTipoCreditoVisibility();
+            togglePaymentMethods();
         });
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
     </script>
 }

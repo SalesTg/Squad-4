@@ -39,10 +39,10 @@ public class BancoContext : DbContext
                 v => (EMecanica)v
             );
         modelBuilder.Entity<Campanha>()
-            .Property(x => x.TipoExecacao)
+            .Property(x => x.TipoExcecao)
             .HasConversion(
                 v => v.ToString()[0],
-                v => (ETipoExecacao)v
+                v => (ETipoExcecao)v
             );
         base.OnModelCreating(modelBuilder);
     }
