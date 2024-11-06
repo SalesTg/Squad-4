@@ -4,7 +4,7 @@
     ViewData["Title"] = "Campanhas cadastradas";
 }
 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-    <a class="btn btn-primary" role="button" asp-controller="Cadastrados" asp-action="Criar">Criar Campanha</a>
+    <a class="btn btn-primary" role="button" asp-controller="Cadastrados" asp-action="Criar">Criar</a>
 </div>
 </br>
 
@@ -29,7 +29,7 @@
                     <td>@campanha.Nome</td>
                     <td>@campanha.DataInicio.ToShortDateString()</td>
                     <td>@campanha.DataFim.ToShortDateString()</td>
-                    <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar" asp-route-id="@campanha.Id">Deletar Campanha</a></div></td>
+                    <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar" asp-route-id="@campanha.Id">Deletar</a></div></td>
                     <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar" asp-route-id="@campanha.Id">Editar</a></div></td>
                 </tr>
             }
