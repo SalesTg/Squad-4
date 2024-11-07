@@ -116,5 +116,15 @@ namespace CadastroCashback.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Visualizar(int id)
+        {
+            var campanha = await _bancoContext.Campanhas.FirstOrDefaultAsync(c => c.Id == id);
+            if (campanha == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(campanha);
+        }
     }
 }

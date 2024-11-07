@@ -1,0 +1,157 @@
+﻿@model CadastroCashback.Models.Campanha
+
+<div class="container">
+    <main>
+        <div class="col-md-7 col-lg-8">
+            <h1 class="mb-3">Visualizar Campanha</h1>
+            <form class="needs-validation" novalidate asp-action="EditarCampanha">
+                <input asp-for="@Model.Id" hidden>
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">Nome da Campanha</label>
+                        <input class="form-control" asp-for="@Model.Nome" readonly>
+                    </div>
+                
+                    <div class="col-12">
+                        <label for="premiacaoSelect" class="form-label">Tipo de Premiação</label>
+                        <select class="form-select" id="premiacaoSelect" asp-for="@Model.TipoPremiacao" disabled>
+                            <option value="">Selecione uma opção</option>
+                            <option value="@ETipoPremiacao.CreditoFatura">Crédito em fatura</option>
+                            <option value="@ETipoPremiacao.PontosLivelo">Pontos Livelo</option>
+                        </select>
+                    </div>
+                    @if (Model.TipoPremiacao == ETipoPremiacao.CreditoFatura)
+                    {
+                    <div class="col-6" id="tipoCreditoDiv" style="display: none;">
+                        <label for="tipoCreditoSelect" class="form-label">Tipo de crédito em fatura</label>
+                        <select class="form-select" id="tipoCreditoSelect" asp-for="@Model.TipoCredito" disabled>
+                            <option value="">Selecione uma opção</option>
+                            <option value="@ETipoCredito.ValorFixo">Valor Fixo</option>
+                            <option value="@ETipoCredito.PercentualCompra">Percentual da compra</option>
+                        </select>
+                    </div>
+                    }
+
+                    @if (Model.TipoCredito == ETipoCredito.ValorFixo)
+                    {
+                    <div class="col-6" id="valorCashbackDiv" style="display: none;">
+                        <label for="valorCashback" class="form-label">Valor do Cashback</label>
+                        <input type="number" class="form-control" id="valorCashback" asp-for="@Model.ValorCashback" readonly>
+                    </div>
+                    }
+
+                    <div class="col-6" id="percentualCampanhaDiv" style="display: none;">
+                        <label for="percentualCampanha" class="form-label">Percentual da Campanha</label>
+                        <input type="number" class="form-control" id="percentualCampanha" asp-for="@Model.PercentualCashback" readonly>
+                    </div>
+
+                    <div class="col-6" id="pontosPorRealDiv" style="display: none;">
+                        <label for="pontosPorReal" class="form-label">Pontos por Real</label>
+                        <input type="number" class="form-control" id="pontosPorReal" asp-for="@Model.PontosPorReal" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="fatoresCategorizacao" class="form-label">Fatores de Categorização</label>
+                        <select class="form-select" id="fatoresCategorizacao" asp-for="@Model.FatorCategorizacao" disabled>
+                            <option value="">Selecione uma opção</option>
+                            <option value="@EFatorCategorizacao.TransaçõesCategorizadas">Transações categorizadas </option>
+                            <option value="@EFatorCategorizacao.PortadoresCadastrados">Portadores cadastrados + Transações categorizadas</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="dataInicial" class="form-label">Data início de Campanha</label>
+                        <input type="date" class="form-control" id="dataInicial" asp-for="@Model.DataInicio" readonly>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="dataFinal" class="form-label">Data Final de Campanha</label>
+                        <input type="date" class="form-control" id="dataFinal" asp-for="@Model.DataFim" readonly>
+                    </div>
+
+                    <div class="col-6">
+                        <label for="limiteQuantitativo" class="form-label">Limite Quantitativo</label>
+                        <input type="text" class="form-control" id="limiteQuantitativo" asp-for="@Model.LimiteQuantitativo" readonly>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="mecanicaCampanha" class="form-label">Mecânica da Campanha</label>
+                        <select class="form-select" id="mecanicaCampanha" asp-for="@Model.Mecanica" disabled>
+                            <option value="">Selecione uma opção</option>
+                            <option value="@EMecanica.Transacional">Transacional</option>
+                            <option value="@EMecanica.Acúmulo">Acúmulo</option>
+                            <option value="@EMecanica.Frequência">Frequência</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="same-address" onclick="togglePaymentMethods()" disabled>
+                        <label class="form-check-label" for="same-address">Informe de exceção</label>
+                    </div>
+
+                    <div class="my-3" id="paymentMethods" style="display: none;">
+                        <div class="form-check">
+                            <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input" disabled>
+                            <label class="form-check-label" for="credit">Whitelist</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="debit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Blacklist" type="radio" class="form-check-input" disabled>
+                            <label class="form-check-label" for="debit">Blacklist</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <a class="btn btn-danger" asp-controller="Cadastrados" asp-action="Index">Voltar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+@section Scripts {
+    <script>
+        function toggleFieldVisibility(selectId, value1, value2, div1Id, div2Id) {
+            const selectElement = document.getElementById(selectId);
+            const div1 = document.getElementById(div1Id);
+            const div2 = document.getElementById(div2Id);
+
+            if (selectElement.value === value1) {
+                div1.style.display = "block";
+                div2.style.display = "none";
+            } else if (selectElement.value === value2) {
+                div1.style.display = "none";
+                div2.style.display = "block";
+            } else {
+                div1.style.display = "none";
+                div2.style.display = "none";
+            }
+        }
+
+        function togglePaymentMethods() {
+            const checkbox = document.getElementById('same-address');
+            const paymentMethodsDiv = document.getElementById('paymentMethods');
+            paymentMethodsDiv.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            toggleFieldVisibility("premiacaoSelect", "@ETipoPremiacao.CreditoFatura", "@ETipoPremiacao.PontosLivelo", "tipoCreditoDiv", "pontosPorRealDiv");
+            toggleFieldVisibility("tipoCreditoSelect", "ValorFixo", "PercentualCompra", "valorCashbackDiv", "percentualCampanhaDiv");
+        });
+
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    </script>
+}

@@ -19,6 +19,7 @@
                 <th scope="col">Data Final</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +30,9 @@
                     <td>@campanha.Nome</td>
                     <td>@campanha.DataInicio.ToShortDateString()</td>
                     <td>@campanha.DataFim.ToShortDateString()</td>
+                    <td><div><a type="button" class="btn btn-primary" asp-controller="Cadastrados" asp-action="Editar" asp-route-id="@campanha.Id">Editar</a></div></td>
+                    <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Visualizar" asp-route-id="@campanha.Id">Visualizar</a></div></td>
                     <td><div><a type="button" class="btn btn-danger" asp-controller="Cadastrados" asp-action="Deletar" asp-route-id="@campanha.Id">Deletar</a></div></td>
-                    <td><div><a type="button" class="btn btn-secondary" asp-controller="Cadastrados" asp-action="Editar" asp-route-id="@campanha.Id">Editar</a></div></td>
                 </tr>
             }
         </tbody>
