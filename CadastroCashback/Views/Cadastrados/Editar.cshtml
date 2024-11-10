@@ -87,11 +87,11 @@
                     </div>
 
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="same-address" onclick="togglePaymentMethods()">
+                            <input type="checkbox" class="form-check-input" id="same-address" onclick="togglePaymentMethods()" @(Model.TipoExcecao != null ? "checked" : "")>
                         <label class="form-check-label" for="same-address">Informe de exceção</label>
                     </div>
 
-                    <div class="my-3" id="paymentMethods" style="display: none;">
+                    <div class="my-3" id="paymentMethods">
                         <div class="form-check">
                             <input id="credit" asp-for="@Model.TipoExcecao" value="@ETipoExcecao.Whiteliste" type="radio" class="form-check-input">
                             <label class="form-check-label" for="credit">Whitelist</label>
