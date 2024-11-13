@@ -6,6 +6,7 @@ namespace CadastroCashback.Models
     [Table("campanhas")]
     public class Campanha
     {
+        internal string Status;
         [Key]
         public int Id { get; set; }
 

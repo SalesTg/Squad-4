@@ -1,0 +1,13 @@
+﻿<form method="post" asp-action="Pesquisar">
+    <input type="text" name="nomeCampanha" placeholder="Nome da Campanha" />
+    <input type="date" name="dataInicio" />
+    <input type="date" name="dataFim" />
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+    </div>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Cadastrados" asp-action="Criar">Criar</a>
+    </div>
+</form>

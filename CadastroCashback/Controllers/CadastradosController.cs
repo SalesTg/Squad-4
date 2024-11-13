@@ -12,11 +12,60 @@ namespace CadastroCashback.Controllers
         {
             _bancoContext = bancoContext;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string nomeCampanha, DateTime? dataInicio, DateTime? dataFim, string status)
         {
-            var model = await _bancoContext.Campanhas.ToListAsync();
+            var query = _bancoContext.Campanhas.AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(nomeCampanha))
+            {
+                query = query.Where(c => c.Nome.Contains(nomeCampanha));
+            }
+
+
+            if (dataInicio.HasValue && !dataFim.HasValue)
+            {
+
+                query = query.Where(c => c.DataInicio.Date == dataInicio.Value.Date);
+            }
+
+            else if (!dataInicio.HasValue && dataFim.HasValue)
+            {
+
+                query = query.Where(c => c.DataFim.Date == dataFim.Value.Date);
+            }
+
+            else if (dataInicio.HasValue && dataFim.HasValue)
+            {
+                query = query.Where(c => c.DataInicio.Date >= dataInicio.Value.Date && c.DataFim.Date <= dataFim.Value.Date);
+            }
+
+
+            if (!string.IsNullOrEmpty(status) && status != "Todos")
+            {
+                query = query.Where(c => c.Status == status);
+            }
+
+
+            var model = await query.ToListAsync();
             return View(model);
         }
+
+        [HttpPost]
+        [HttpPost]
+        public IActionResult Pesquisar(string nomeCampanha, DateTime? dataInicio, DateTime? dataFim, string status)
+        {
+
+            return RedirectToAction("Index", new { nomeCampanha, dataInicio, dataFim, status });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Pesquisar()
+        {
+
+            return View();
+        }
+
 
         public async Task<IActionResult> Criar()
         {
