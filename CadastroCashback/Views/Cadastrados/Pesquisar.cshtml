@@ -1,13 +1,97 @@
-﻿<form method="post" asp-action="Pesquisar">
-    <input type="text" name="nomeCampanha" placeholder="Nome da Campanha" />
-    <input type="date" name="dataInicio" />
-    <input type="date" name="dataFim" />
-    
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <button type="submit" class="btn btn-primary">Pesquisar</button>
-    </div>
-    
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" role="button" asp-controller="Cadastrados" asp-action="Criar">Criar</a>
-    </div>
-</form>
+﻿<style>
+
+    <h1 > Pesquisar Campanha</h1 >
+
+    .search-container {
+        background-color: transparent;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+        .search-container h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+    .form-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 10px 0;
+    }
+
+        .form-group label {
+            flex: 1 1 100%;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group select {
+            appearance: none;
+        }
+
+    .form-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+        .form-actions button,
+        .form-actions .btn {
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+            .form-actions button:hover,
+            .form-actions .btn:hover {
+                background-color: #45a049;
+            }
+</style>
+
+<div class="search-container">
+    <h1>Pesquisar Campanha</h1>
+    <br />
+    <form method="post" asp-action="Pesquisar">
+        <div class="form-group">
+            <label for="nomeCampanha">Nome Campanha:</label>
+            <input type="text" id="nomeCampanha" name="nomeCampanha" placeholder="Nome da Campanha" />
+        </div>
+        <div class="form-group">
+            <label for="dataInicio">Data Início Campanha:</label>
+            <input type="date" id="dataInicio" name="dataInicio" />
+        </div>
+        <div class="form-group">
+            <label for="dataFim">Data Fim Campanha:</label>
+            <input type="date" id="dataFim" name="dataFim" />
+        </div>
+        <div class="form-group">
+            <label for="statusCampanha">Status Campanha:</label>
+            <select id="statusCampanha" name="statusCampanha">
+                <option value="Todos">Todos</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div class="form-actions">
+            <button type="submit">Pesquisar</button>
+            <a class="btn" role="button" asp-controller="Cadastrados" asp-action="Criar">Criar</a>
+        </div>
+    </form>
+</div>
