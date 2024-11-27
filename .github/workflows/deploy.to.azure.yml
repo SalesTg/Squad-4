@@ -1,0 +1,37 @@
+name: Deploy to Azure WebApp
+
+on:
+  push:
+    branches:
+      - main  # Triggers deployment on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup .NET environment
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'  # Ensures the right .NET version is installed
+
+      # Step 3: Build the .NET project
+      - name: Build the project
+        run: dotnet build --configuration Release
+
+      # Step 4: Publish the .NET project
+      - name: Publish the project
+        run: dotnet publish -c Release -o ./publish
+
+      # Step 5: Deploy to Azure WebApp
+      - name: Azure WebApp
+        uses: Azure/webapps-deploy@v3.0.1
+        with:
+          app-name: <YOUR_AZURE_APP_NAME>  # Replace with your Azure App Service name
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./publish
